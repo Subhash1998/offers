@@ -1,0 +1,23 @@
+<p>Name     :  {{user.first_name}}</p>
+<p>E-mail   :  {{user.email}}</p>
+<p>Username :  {{user}}</p>
+
+{% if user.userprofile.company %}
+	<p>Company : {{ user.userprofile.company}}</p>
+{% else %}
+	<a href="{% url 'function:add_company' %}">Add Company Name</a>
+	{% if company_form %}
+	<form method="post" action="{% url 'function:add_company' %}">
+		{{company_form.as_p}}
+		<input type="submit" name="submit" value="Add">
+	</form>
+	{% endif %}
+{% endif %}
+<a href="{% url 'function:add_feature' %}">Add an Offer</a>
+<a href="{% url 'function:logout' %}">Logout</a>
+
+<p>Offers Added</p>
+	{% for y in ob2.feature_set.all %}
+		<p>{{y.feature_name}}</p>
+		<p>{{y.feature_detail}}</p>
+	{% endfor %}

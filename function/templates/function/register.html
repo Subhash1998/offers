@@ -1,0 +1,11 @@
+<div align="center">
+	<p><b>Register Here!!</b></p>
+<form method="post" action="{% url 'function:signup' %}">
+	{% csrf_token%}
+	<p><label for="id_first_name">Name:</label> <input id="id_first_name" maxlength="30" name="first_name" type="text" /></p>
+	<p><label for="id_email">Email</label> <input id="id_email" maxlength="254" name="email" type="email" /></p>
+	<p><label for="id_username">Username:</label> <input id="id_username" maxlength="150" name="username" type="text" required /></p>
+	<p><label for="id_password">Password:</label> <input id="id_password" name="password" type="password" required /></p>
+	<input type="submit" name="Submit" value="Submit">
+</form>
+</div>
