@@ -1,11 +1,29 @@
+{% extends 'function/base.html' %}
+{% block body %}
 <div align="center">
-	<p><b>Register Here!!</b></p>
+<h1>Register Here!</h1><br>
 <form method="post" action="{% url 'function:signup' %}">
 	{% csrf_token%}
-	<p><label for="id_first_name">Name:</label> <input id="id_first_name" maxlength="30" name="first_name" type="text" /></p>
-	<p><label for="id_email">Email</label> <input id="id_email" maxlength="254" name="email" type="email" /></p>
-	<p><label for="id_username">Username:</label> <input id="id_username" maxlength="150" name="username" type="text" required /></p>
-	<p><label for="id_password">Password:</label> <input id="id_password" name="password" type="password" required /></p>
+	<table>
+		<tr>
+			<td><label for="id_first_name">Name:</label></td>
+			<td><input id="id_first_name" maxlength="30" name="first_name" type="text" /></td>
+		</tr>
+		<tr>
+			<td><label for="id_email">Email</label></td>
+			<td><input id="id_email" maxlength="254" name="email" type="email" /></td>
+		</tr>
+		<tr>
+			<td><label for="id_username">Username:</label></td>
+			<td><input id="id_username" maxlength="150" name="username" type="text" required /></td>
+		</tr>
+		<tr>
+			<td><label for="id_password">Password:</label></td>
+			<td><input id="id_password" name="password" type="password" required /></td>
+		</tr>
+	</table>
+	<br>
 	<input type="submit" name="Submit" value="Submit">
 </form>
 </div>
+{% endblock %}

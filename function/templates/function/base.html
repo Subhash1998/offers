@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Offers</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<style type="text/css">
+	a{
+		text-decoration:none;
+	}
+	p{
+		text-align: center;
+	}
+	input[type=submit]
+	{
+		color: green;
+	}
+	 body { background-color: #ddd; }
+  #container { height: 100%; width: 100%; display: table; }
+  #inner { vertical-align: middle; display: table-cell; }
+  #gauge_div { width: 120px; margin: 0 auto; }
+</style>	
+<body>
+	<nav class="navbar navbar-default">
+	<ul class="nav navbar-nav">
+	<li><a href="{% url 'function:home' %}">Home</a></li>
+	<li><a href="{% url 'function:signup' %}">Signup</a></li>
+	<li><a href="{% url 'function:login' %}">Login</a></li>
+</ul>
+</nav>
+{% block body%}
+{% endblock %}
+</body>
+</html>

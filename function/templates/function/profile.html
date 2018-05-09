@@ -1,9 +1,14 @@
-<p>Name     :  {{user.first_name}}</p>
-<p>E-mail   :  {{user.email}}</p>
-<p>Username :  {{user}}</p>
-
+{% extends 'function/profile_base.html' %}
+{% block body%}
+<div align="center">
+	<p>Name     :  {{user.first_name}}</p>
+	<p>E-mail   :  {{user.email}}</p>
+	<p>Username :  {{user}}</p>
+</div>
+<hr>
+<div align="center">
 {% if user.userprofile.company %}
-	<p>Company : {{ user.userprofile.company}}</p>
+	<b><p>Company : {{ user.userprofile.company}}</p></b>
 {% else %}
 	<a href="{% url 'function:add_company' %}">Add Company Name</a>
 	{% if company_form %}
@@ -13,11 +18,24 @@
 	</form>
 	{% endif %}
 {% endif %}
-<a href="{% url 'function:add_feature' %}">Add an Offer</a>
-<a href="{% url 'function:logout' %}">Logout</a>
-
-<p>Offers Added</p>
+</div>
+<hr>
+<div align="center">
+<p><u>Offers Added</u></p>
+{% if ob2.feature_set.all%}
+<table border="2">
+<tr>
+	<th>Offer Name</th>
+	<th>Offer Detail</th>
+</tr>
 	{% for y in ob2.feature_set.all %}
-		<p>{{y.feature_name}}</p>
-		<p>{{y.feature_detail}}</p>
+		<tr><td>{{y.feature_name}}</td>
+			<td>{{y.feature_detail}}</td>
+		</tr>
 	{% endfor %}
+</table>
+{% else %}
+<p>N/A</p>
+{% endif %}
+</div>
+{%endblock%}

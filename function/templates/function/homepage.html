@@ -1,3 +1,10 @@
+{% extends 'function/base.html' %}
+<html>
+<head>
+	<title>Offers</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
 <style type="text/css">
 	a{
 		text-decoration:none;
@@ -5,12 +12,42 @@
 	p{
 		text-align: center;
 	}
+	 body { background-color: #ddd; }
+  #container { height: 100%; width: 100%; display: table; }
+  #inner { vertical-align: middle; display: table-cell; }
+  #gauge_div { width: 120px; margin: 0 auto; }
 </style>
-<div style="height: 20%; background-color: grey;"></div>
-<div style="padding-top: 5%;">
-<p>Hello</p>
-<p><a href="{% url 'function:signup' %}">Signup</a></li></p>
-<p><a href="{% url 'function:login' %}">Login</a></p>
-<p><a href="{% url 'function:show_feature' %}">Show all Offers</a></p>
-</div>
-<footer style="height: 5%; background-color: grey;"></footer>
+<body>
+	{% block body %}
+<h1 align="center">OFFERS</h1><hr><br>
+<div id="content"></div>
+<script type="text/javascript" >
+var info = document.getElementById('content');
+$(document).ready(function(){
+            $.ajax({
+                url: 'http://127.0.0.1:8000/feature_list/?format=json',
+                type: 'get',
+                success: function(data){
+                    $('#content').html(data);
+                    console.log(data);
+                    renderHTML(data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    var errorMsg = 'Ajax request failed: ' + xhr.responseText;
+                    $('#content').html(errorMsg);
+                  }
+            });
+        });
+var i=0;
+function renderHTML(data){
+	var htmlString = "";
+
+	for(i=0;i<data.length;i++){
+		htmlString += "<p><b>Offer Name  :  </b>" + data[i].feature_name + "</p><p><b>Offers Detail  : </b>" + data[i].feature_detail + "</p><p><b>Company  : </b>" + data[i].company_name + "</p><hr>";
+			console.log("x");
+	}
+	info.insertAdjacentHTML('beforeend' , htmlString);
+}
+</script>
+{% endblock %}
+</body>

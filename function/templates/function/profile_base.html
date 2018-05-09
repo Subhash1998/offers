@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Profile</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<style type="text/css">
+	table{
+		width: 800px;
+		text-align: center;
+	}
+	th{
+		text-align: center;	
+	}
+</style>
+<body>
+<nav class="navbar navbar-default">
+	<ul class="nav navbar-nav">
+	<li><a href="{% url 'function:add_feature' %}">Add an Offer</a></li>
+	<li><a href="{% url 'function:logout' %}">Logout</a></li>
+</ul>
+</nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>

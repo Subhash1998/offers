@@ -93,14 +93,6 @@ def add_feature(request):
 		form=FeatureForm()
 	return render_to_response('function/add_feature.html',{'form':form,'registered':registered},context)
 
-# def show_feature(request):
-# 	ob=Feature.objects.all()
-# 	return render_to_response('function/index.html',{'ob':ob})
-
-
-def show_feature(request):
-	return render(request,'function/index.html')
-
 def add_company(request):
    if request.method=='POST':
       company_form = CompanyForm(request.POST)
