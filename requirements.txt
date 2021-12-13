@@ -33,7 +33,7 @@ idna==2.6
 Inshorts==0.2.4
 joblib==0.9.4
 lockfile==0.12.2
-lxml==4.2.0
+lxml==4.6.5
 Mako==1.0.3
 MarkupSafe==0.23
 mathparse==0.1.1
