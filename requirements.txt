@@ -31,7 +31,7 @@ html5lib==1.0b10
 httplib2==0.11.3
 idna==2.6
 Inshorts==0.2.4
-joblib==0.9.4
+joblib==1.2.0
 lockfile==0.12.2
 lxml==4.2.0
 Mako==1.0.3
